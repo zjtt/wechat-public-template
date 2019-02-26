@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>wechat-public-template</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+    <div id="app-box"></div>
+    <!-- built files will be auto injected -->
+    <script>
+        // 未兼容ipad
+    function setRemFontSize(baseSize, baseWidth) {
+        let clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        baseSize = baseSize || 100;
+        baseWidth = baseWidth || 750;
+        clientWidth = clientWidth <= 480 ? clientWidth : 480;
+        document.getElementsByTagName('html')[0].style.fontSize = clientWidth * baseSize / baseWidth + 'px';
+    }
+    setRemFontSize();
+    window.addEventListener('resize', function () {
+        setTimeout(function () {
+            setRemFontSize();
+        }, 200);
+    });
+    </script>
+</body>
+</html>
