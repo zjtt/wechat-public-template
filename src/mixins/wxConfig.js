@@ -11,10 +11,9 @@ export default {
             defaultObj: {
                 title: '', // 分享标题
                 desc: '', // 分享描述
-                link: window.location.origin + '/dist/index.html#/home?friendId='
-                + util.getLocalstorage('iPageStorage').openId,
+                link: '',
                 // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: window.location.origin + '/dist/static/logo.jpg', // 分享图标
+                imgUrl: '', // 分享图标
                 succ: res => {
                     console.log('shareSucc');
                     console.log(res);
@@ -61,6 +60,8 @@ export default {
             });
         },
         selfShare(obj) {
+            this.defaultObj.link = window.location.origin + '/marketing-online/dist/index.html#/home?friendId='
+            + util.getLocalstorage('socialMarketStorage').openId;
             console.log('分享链接：' + this.defaultObj.link);
             this.defaultObj.imgUrl = window.location.origin + '/dist/static/logo.jpg';
             if (!obj) {
