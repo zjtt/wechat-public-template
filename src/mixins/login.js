@@ -52,6 +52,7 @@ export default {
                 + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
             }
             else if (this.currentRouteName === 'isLogin') {
+                // 此处应填写已经授权的域名
                 let getCodeUrl = window.location.origin + '/dist/get-weixin-code.html';
                 let redirectUrl = encodeURIComponent(window.location.href);
                 switchUrl = `${getCodeUrl}?appid=${appid}&scope=snsapi_userinfo&state=hello`
