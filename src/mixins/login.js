@@ -46,12 +46,12 @@ export default {
         getAuth() { // 回掉授权
             let switchUrl = '';
             let appid = '';
-            if (this.currentRouteName === 'home') {
+            if (this.currentRouteName === 'home') { // 主页授权
                 switchUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri='
                 + encodeURIComponent(window.location.origin + '/dist/index.html#/home')
                 + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
             }
-            else if (this.currentRouteName === 'isLogin') {
+            else if (this.currentRouteName === 'isLogin') { // 登录页授权
                 // 此处应填写已经授权的域名
                 let getCodeUrl = window.location.origin + '/dist/get-weixin-code.html';
                 let redirectUrl = encodeURIComponent(window.location.href);
@@ -62,13 +62,13 @@ export default {
         },
         login(urlCode) { // 获取openId
             let me = this;
-            // 请求登录接口
+            // 请求业务登录接口
         },
         loadHome() {
             // 不授权就不发起任何请求,授权才发起请求
             this.$trigger('homeInit');
         },
-        goHome() { // 去主页
+        goHome() { // 登录页去主页
             let homeUrl = window.location.href.split('?')[0] + '#/home';
             window.location.replace(homeUrl);
         }
